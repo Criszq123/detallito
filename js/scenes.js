@@ -21,8 +21,8 @@ export const storyScenes = [
     id: 1,
     image: "img/cat-glasses.png",
     text: "Un momento... identifícate.",
-    subtext: "Zona de máxima ternura restringida 🕶️",
-    buttonText: "Soy yo... 🐾",
+    subtext: "(sera quien creo que es ?..)",
+    buttonText: "Soy yo",
     sfx: "pop",
     yoshiWobble: true
   },
@@ -30,8 +30,8 @@ export const storyScenes = [
     id: 2,
     image: "img/cat-10.png",
     text: "¿De verdad eres tú? Déjame mirarte bien...",
-    subtext: "(analizando nivel de lindura... 100% verificado)",
-    buttonText: "¿Y bien? 👀",
+    subtext: "(recordando )",
+    buttonText: "¿Y bien?",
     sfx: "boing",
     yoshiWobble: true
   },
@@ -40,7 +40,7 @@ export const storyScenes = [
     image: "img/cat-07.png",
     text: "¡Siiii! ¡Sabía que vendrías!",
     subtext: "Llevaba todo el día esperando por ti.",
-    buttonText: "Awww, ¿en serio? ✨",
+    buttonText: "SUGUIENTE",
     sfx: "meow",
     yoshiWobble: true
   },
@@ -56,8 +56,8 @@ export const storyScenes = [
   {
     id: 5,
     image: "img/cat-00.png",
-    text: "Solo quería recordarte lo mucho que te quiero...",
-    subtext: "Y lo feliz que me hace tenerte en mi vida.",
+    text: "Solo quería recordarte que eres especial para mí.",
+    subtext: "Y lo feliz que me hace conocerte.",
     buttonText: "Un abrazo gigante 💕",
     sfx: "sparkle",
     yoshiWobble: true
@@ -65,9 +65,9 @@ export const storyScenes = [
   {
     id: 6,
     image: "img/cat-11.png",
-    text: "¡Misión cumplida! Te mando muchos besitos y mimos.",
-    subtext: "Siempre puedes volver a verme cuando quieras un abrazo.",
-    buttonText: "Volver a empezar 🔁",
+    text: "¡Misión cumplida! Te mando un saludito.",
+    subtext: "",
+    buttonText: "Volver a empezar",
     sfx: "meow",
     celebration: true,
     yoshiWobble: true
@@ -78,8 +78,8 @@ export const storyScenes = [
  * Mensaje o título de la pantalla de bienvenida
  */
 export const welcomeConfig = {
-  title: "Tengo un detallito para ti...",
-  hint: "Sube el volumen y toca la pantalla para empezar 🐾",
-  buttonText: "Abrir mensaje 💌",
+  title: "Tengo un detallito para ti",
+  hint: "Sube el volumen y toca la pantalla para empezar",
+  buttonText: "Abrir mensaje",
   welcomeImage: "img/cat-glasses.png"
 };
