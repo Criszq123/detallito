@@ -1,0 +1,113 @@
+/* ============================================================
+   1. EFECTO YOSHI'S ISLAND (TRAZO TEMBLOROSO / LINE BOIL)
+   ============================================================ */
+.yoshi-stroke {
+  filter: url('#yoshi-boil');
+  will-change: filter, transform;
+}
+
+/* Efecto temblor adicional sutil simulando dibujo cuadro a cuadro */
+@keyframes pencilJitter {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-0.8px, 0.6px) rotate(-0.3deg); }
+  50% { transform: translate(0.6px, -0.7px) rotate(0.4deg); }
+  75% { transform: translate(-0.5px, -0.5px) rotate(-0.2deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.pencil-shake {
+  animation: pencilJitter 0.18s infinite steps(2);
+}
+
+/* ============================================================
+   2. SQUASH & STRETCH (DEFORMACIÓN ELÁSTICA EN CADA TOMA)
+   ============================================================ */
+@keyframes squashStretchIn {
+  0% {
+    opacity: 0;
+    transform: translateY(70px) scale(0.35, 1.4);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(8px) scale(1.35, 0.7); /* Se aplasta contra el suelo */
+  }
+  50% {
+    transform: translateY(-24px) scale(0.85, 1.25); /* Se estira hacia arriba */
+  }
+  70% {
+    transform: translateY(4px) scale(1.12, 0.92); /* Rebote secundario */
+  }
+  85% {
+    transform: translateY(-6px) scale(0.96, 1.05); /* Pequeño ajuste */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1, 1); /* Estado natural */
+  }
+}
+
+.squash-in {
+  transform-origin: bottom center;
+  animation: squashStretchIn 0.65s cubic-bezier(0.28, 0.84, 0.42, 1) forwards;
+}
+
+/* Squash & Stretch de impacto al tocar la imagen */
+@keyframes squashClick {
+  0% { transform: scale(1, 1); }
+  30% { transform: scale(1.22, 0.8); }
+  60% { transform: scale(0.88, 1.15); }
+  80% { transform: scale(1.05, 0.96); }
+  100% { transform: scale(1, 1); }
+}
+
+.squash-bounce {
+  transform-origin: bottom center;
+  animation: squashClick 0.45s ease-out;
+}
+
+/* ============================================================
+   3. ANIMACIONES SECUNDARIAS (FLOTACIÓN, TEXTO, CORAZONES)
+   ============================================================ */
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+.gentle-float {
+  animation: gentleFloat 3s ease-in-out infinite;
+}
+
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-appear {
+  animation: textReveal 0.4s ease-out forwards;
+}
+
+/* Botón flotando suavemente para invitar a hacer clic */
+@keyframes pulseButton {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.btn-pulse {
+  animation: pulseButton 2s ease-in-out infinite;
+}
+
+/* Desvanecimiento para pantalla inicial */
+@keyframes fadeOut {
+  from { opacity: 1; pointer-events: all; }
+  to { opacity: 0; pointer-events: none; }
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease forwards;
+}

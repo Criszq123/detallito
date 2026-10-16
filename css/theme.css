@@ -1,0 +1,29 @@
+:root {
+  /* Paleta de colores cálida y tierna */
+  --bg-color: #faf5ee;
+  --bg-accent: #f4ece1;
+  --card-bg: #ffffff;
+  --card-border: #222222;
+  --text-primary: #2d2a26;
+  --text-muted: #827b72;
+  --accent-pink: #ff85a1;
+  --accent-pink-soft: #ffe3ec;
+  --accent-yellow: #fde047;
+  --accent-blue: #a0c4ff;
+  --accent-purple: #bdb2ff;
+  
+  /* Sombras estilo sticker / doodle */
+  --shadow-sticker: 5px 6px 0px rgba(45, 42, 38, 0.9);
+  --shadow-sticker-hover: 7px 8px 0px rgba(45, 42, 38, 0.9);
+  --shadow-sticker-active: 2px 2px 0px rgba(45, 42, 38, 0.9);
+  --shadow-soft: 0 14px 35px rgba(120, 90, 60, 0.08);
+
+  /* Tipografías */
+  --font-doodle: 'Gaegu', cursive, sans-serif;
+  --font-body: 'Quicksand', system-ui, -apple-system, sans-serif;
+
+  /* Dimensiones */
+  --card-max-width: 520px;
+  --radius-card: 28px;
+  --radius-btn: 50px;
+}

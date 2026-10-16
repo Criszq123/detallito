@@ -1,0 +1,373 @@
+/* ============================================================
+   RESET Y ESTILOS BASE
+   ============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+  background-image: 
+    radial-gradient(var(--bg-accent) 15%, transparent 16%),
+    radial-gradient(var(--bg-accent) 15%, transparent 16%);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  padding: 18px;
+  user-select: none;
+}
+
+/* ============================================================
+   CONTENEDOR DE PARTÍCULAS DE FONDO (CORAZONCITOS Y CHISPAS)
+   ============================================================ */
+#particles-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.floating-particle {
+  position: absolute;
+  pointer-events: none;
+  font-size: 1.4rem;
+  opacity: 0.75;
+  animation: floatUp 3.5s ease-out forwards;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.6) rotate(0deg);
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-130px) scale(1.1) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   BOTÓN DE CONTROL DE MÚSICA (SUPERIOR)
+   ============================================================ */
+.music-toggle {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 100;
+  background: var(--card-bg);
+  border: 2.5px solid var(--card-border);
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0px var(--card-border);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.music-toggle:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px var(--card-border);
+}
+
+.music-toggle:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--card-border);
+}
+
+.music-toggle.muted {
+  opacity: 0.75;
+  filter: grayscale(1);
+}
+
+/* ============================================================
+   TARJETA PRINCIPAL DEL CUENTO
+   ============================================================ */
+.story-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: var(--card-max-width);
+}
+
+.story-card {
+  background: var(--card-bg);
+  border: 3.5px solid var(--card-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sticker);
+  padding: 30px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+/* Adornos estilo cinta adhesiva doodle */
+.story-card::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 110px;
+  height: 26px;
+  background: rgba(254, 240, 138, 0.85);
+  border: 1.5px dashed rgba(45, 42, 38, 0.4);
+  z-index: 5;
+}
+
+/* ============================================================
+   INDICADOR DE PROGRESO (PATITAS / PUNTOS)
+   ============================================================ */
+.progress-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--card-border);
+  background: #ffffff;
+  transition: all 0.25s ease;
+}
+
+.progress-dot.active {
+  background: var(--accent-pink);
+  transform: scale(1.3);
+}
+
+.progress-dot.passed {
+  background: var(--text-primary);
+}
+
+/* ============================================================
+   ESCENARIO DEL GATITO (IMAGEN + SOMBRA)
+   ============================================================ */
+.stage {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.cat-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.cat-image {
+  max-width: 230px;
+  max-height: 220px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Sombra suave en el suelo que reacciona con el squash */
+.cat-shadow {
+  width: 130px;
+  height: 14px;
+  background: rgba(45, 42, 38, 0.12);
+  border-radius: 50%;
+  margin-top: -6px;
+  transition: transform 0.3s ease;
+}
+
+/* ============================================================
+   CUADRO DE TEXTO / HISTORIA
+   ============================================================ */
+.story-dialogue {
+  min-height: 95px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  padding: 0 10px;
+}
+
+.story-text {
+  font-family: var(--font-doodle);
+  font-size: 1.85rem;
+  line-height: 1.3;
+  letter-spacing: 0.5px;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.story-subtext {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* ============================================================
+   BOTONES DE ACCIÓN
+   ============================================================ */
+.controls {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  font-family: var(--font-doodle);
+  font-size: 1.55rem;
+  font-weight: 600;
+  padding: 10px 28px;
+  border-radius: var(--radius-btn);
+  border: 3px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+  box-shadow: var(--shadow-sticker);
+  transition: all 0.12s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-sticker-hover);
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-sticker-active);
+}
+
+.btn-primary {
+  background: var(--accent-pink-soft);
+  color: #c9184a;
+  flex: 1;
+  max-width: 280px;
+}
+
+.btn-secondary {
+  padding: 10px 18px;
+  font-size: 1.35rem;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   PANTALLA DE INICIO (OVERLAY DE BIENVENIDA)
+   ============================================================ */
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(250, 245, 238, 0.97);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.welcome-box {
+  background: #ffffff;
+  border: 3.5px solid var(--card-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sticker);
+  padding: 36px 28px;
+  max-width: 440px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome-cat {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  margin-bottom: 14px;
+}
+
+.welcome-title {
+  font-family: var(--font-doodle);
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.welcome-hint {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: 22px;
+}
+
+/* ============================================================
+   RESPONSIVO PARA MÓVILES
+   ============================================================ */
+@media (max-width: 480px) {
+  body {
+    padding: 12px;
+  }
+
+  .story-card {
+    padding: 24px 16px 20px;
+  }
+
+  .stage {
+    height: 210px;
+  }
+
+  .cat-image {
+    max-width: 190px;
+    max-height: 180px;
+  }
+
+  .story-text {
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    font-size: 1.4rem;
+    padding: 9px 20px;
+  }
+}
